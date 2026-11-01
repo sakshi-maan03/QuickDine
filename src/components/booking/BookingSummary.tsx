@@ -42,7 +42,16 @@ export default function BookingSummary({ restaurant, date, slot, guests }: Booki
                     <span className="text-black/55 flex items-center gap-2">
                         <Clock size={14} /> Time
                     </span>
-                    <span>{slot} PM</span>
+                    {/* <span>{slot} PM</span> */}
+                    <span>
+    {slot
+        ? new Date(`2000-01-01T${slot}:00`).toLocaleTimeString("en-US", {
+              hour: "numeric",
+              minute: "2-digit",
+              hour12: true,
+          })
+        : "Not selected"}
+</span>
                 </div>
                 <div className="flex justify-between items-center">
                     <span className="text-black/55 flex items-center gap-2">

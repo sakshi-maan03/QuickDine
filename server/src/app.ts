@@ -6,6 +6,8 @@ import { DB_STATES } from "./config/db";
 import { createErrorHandler, notFound } from "./middleware/errorHandler";
 import authRoutes from "./routes/auth";
 import restaurantRoutes from "./routes/restaurant";
+import availabilityRoutes from "./routes/availability";
+import bookingRoutes from "./routes/booking";
 
 export interface AppOptions {
     /** Websites allowed to call this API from a browser (CORS). */
@@ -58,6 +60,8 @@ app.use(cors({
 
     app.use("/api/auth", authRoutes);
     app.use("/api/restaurants", restaurantRoutes);
+    app.use("/api/availability", availabilityRoutes);
+    app.use("/api/bookings", bookingRoutes);
 
     // --- Restaurant, booking, owner and admin routes are added in later steps ---
 
